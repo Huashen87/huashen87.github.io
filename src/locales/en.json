@@ -4,5 +4,9 @@
   "posts": "Posts",
   "works": "Works",
 
-  "hello": "hello!"
+  "hello": "hello!",
+  "pnf-description": "There aren't any resources here that you're looking for, or that's what you're looking for.",
+
+  "contact-me": "Contact me",
+  "": ""
 }

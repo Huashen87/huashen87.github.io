@@ -18,23 +18,36 @@ function AppBar() {
     navigate(name);
   };
 
+  const handleChangeLang = () => {
+    localStorage.setItem('lng', !isEng ? 'en' : 'zh');
+    setIsEng(!isEng);
+  };
+
+  useEffect(() => {
+    setActiveItem(window.location.pathname.replace('/', ''));
+    setIsEng(localStorage.getItem('lng') !== 'zh');
+  }, []);
+
   useEffect(() => {
     i18n.changeLanguage(isEng ? 'en' : 'zh');
   }, [isEng]);
 
   return (
-    <Menu inverted>
-      {pages.map((name, i) => (
-        <Menu.Item
-          key={i}
-          name={name}
-          active={activeItem === name}
-          onClick={handleItemClick}
-          content={t(name)}
-        />
-      ))}
-      <Menu.Item icon={'language'} position="right" onClick={() => setIsEng(!isEng)} />
-    </Menu>
+    <>
+      <Menu inverted size="huge" widths={6} fixed="top">
+        {pages.map((name, i) => (
+          <Menu.Item
+            key={i}
+            name={name}
+            active={activeItem === name}
+            onClick={handleItemClick}
+            content={t(name)}
+          />
+        ))}
+        <Menu.Item icon={'language'} position="right" onClick={handleChangeLang} />
+      </Menu>
+      <div style={{ height: 60 }} />
+    </>
   );
 }
 
