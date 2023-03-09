@@ -24,7 +24,10 @@ function AppBar() {
   };
 
   useEffect(() => {
-    setActiveItem(window.location.pathname.replace('/', ''));
+    setActiveItem(window.location.pathname.replace('/', '') || 'home');
+  });
+
+  useEffect(() => {
     setIsEng(localStorage.getItem('lng') !== 'zh');
   }, []);
 
