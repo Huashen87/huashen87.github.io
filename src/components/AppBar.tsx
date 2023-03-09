@@ -44,7 +44,13 @@ function AppBar() {
             content={t(name)}
           />
         ))}
-        <Menu.Item icon={'language'} position="right" onClick={handleChangeLang} />
+        <Menu.Item
+          icon={'language'}
+          name="change-lang"
+          position="right"
+          onClick={handleChangeLang}
+          content={t('change-lang')}
+        />
       </Menu>
       <div style={{ height: 60 }} />
     </>
