@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import { Menu, MenuItemProps } from 'semantic-ui-react';
 import i18n from '../i18n';
 
-const pages: string[] = ['home', 'about', 'posts', 'works'];
+const pages: string[] = ['home', 'posts', 'tags', 'works'];
 
 function AppBar() {
   const [activeItem, setActiveItem] = useState<string>('home');
@@ -15,7 +15,7 @@ function AppBar() {
   const handleItemClick = (_: any, d: MenuItemProps) => {
     const name = d.name!;
     setActiveItem(name);
-    navigate(name);
+    navigate(name === 'home' ? '/' : name);
   };
 
   const handleChangeLang = () => {
@@ -25,7 +25,7 @@ function AppBar() {
 
   useEffect(() => {
     setActiveItem(window.location.pathname.replace('/', '') || 'home');
-  });
+  }, [window.location.pathname]);
 
   useEffect(() => {
     setIsEng(localStorage.getItem('lng') !== 'zh');
@@ -48,7 +48,7 @@ function AppBar() {
           />
         ))}
         <Menu.Item
-          icon={'language'}
+          icon={'world'}
           name="change-lang"
           position="right"
           onClick={handleChangeLang}

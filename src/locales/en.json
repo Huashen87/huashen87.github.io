@@ -1,13 +1,14 @@
 {
   "home": "Home",
-  "about": "About",
   "posts": "Posts",
   "works": "Works",
-  "change-lang": "中文",
+  "tags": "Tags",
+  "change-lang": "中",
 
-  "hello": "hello!",
   "pnf-description": "There aren't any resources here that you're looking for, or that's what you're looking for.",
   "publish-at": "Publish at",
+  "click-to-copy": "Click to copy",
+  "copied": "Copied",
 
   "contact-me": "Contact me",
   "": ""

@@ -2,10 +2,12 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { Container } from 'semantic-ui-react';
 import AppBar from './components/AppBar';
 import Footer from './components/Footer';
-import About from './pages/About';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import Post from './pages/Post';
 import Posts from './pages/Posts';
+import Tag from './pages/Tag';
+import Tags from './pages/Tags';
 import Works from './pages/Works';
 
 function App() {
@@ -17,8 +19,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Navigate to="/" />} />
-            <Route path="/about" element={<About />} />
             <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/:title" element={<Post />} />
+            <Route path="/tags" element={<Tags />} />
+            <Route path="/tags/:tag" element={<Tag />} />
             <Route path="/works" element={<Works />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

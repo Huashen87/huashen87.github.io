@@ -1,14 +1,20 @@
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import Markdown from '../components/Markdown';
 
 function Home() {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const [content, setContent] = useState<string>('');
 
-  return (
-    <>
-      <h1>{t('home')}</h1>
-      <h2>{t('hello')}</h2>
-    </>
-  );
+  useEffect(() => {
+    (async () => {
+      const req = await fetch(`/me-${i18n.language}.md`);
+      const text = await req.text();
+      setContent(text);
+    })();
+  }, [i18n.language]);
+
+  return <Markdown children={content} />;
 }
 
 export default Home;
