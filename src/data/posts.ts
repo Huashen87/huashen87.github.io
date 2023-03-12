@@ -10,6 +10,11 @@ const posts: Post[] = [
     tags: ['心得', '研究所'],
     publishAt: '2023-03-10 04:16',
   },
+  {
+    title: 'LeetCode 1. Two Sum',
+    tags: ['LeetCode', 'Blind75'],
+    publishAt: '2023-03-12 22:49',
+  },
 ];
 
 export default posts;
