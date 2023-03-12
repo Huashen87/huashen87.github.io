@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Navigate, useParams } from 'react-router';
-import { Container } from 'semantic-ui-react';
+import { Container, Divider } from 'semantic-ui-react';
 import Markdown from '../components/Markdown';
 import Metadata from '../components/Metadata';
 import posts from '../data/posts';
@@ -21,6 +21,7 @@ function Post() {
   return valid ? (
     <Container>
       <Markdown>{content}</Markdown>
+      <Divider section />
       {<Metadata title={title!} />}
     </Container>
   ) : (

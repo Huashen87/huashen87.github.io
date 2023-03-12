@@ -5,6 +5,9 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Segment, Button, Icon } from 'semantic-ui-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 
 function LinkRenderer(props: any) {
   return (
@@ -45,9 +48,10 @@ function CodeRenderer({ node, inline, className, children, ...props }: any) {
       className={className}
       style={{
         backgroundColor: '#f3f4f5',
-        border: '1px solid #ebebec',
+        border: '1px solid #cccccc',
         borderRadius: '3px',
         padding: '0px 3px',
+        fontStyle: 'italic',
       }}
       {...props}
     >
@@ -60,7 +64,8 @@ function Markdown({ children }: { children: string }) {
   return (
     <ReactMarkdown
       children={children}
-      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeKatex]}
+      remarkPlugins={[remarkGfm, remarkMath]}
       components={{
         a: LinkRenderer,
         code: CodeRenderer,
