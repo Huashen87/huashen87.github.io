@@ -41,21 +41,18 @@ function CodeRenderer({ node, inline, className, children, ...props }: any) {
       />
     </Segment>
   ) : (
-    <Segment secondary>
-      <code className={className} {...props}>
-        {children}
-      </code>
-      <Button
-        onClick={handleCopy}
-        size="mini"
-        compact
-        positive={copied}
-        floated="right"
-      >
-        {`${t(copied ? 'copied' : 'click-to-copy')}  `}
-        <Icon name={copied ? 'check' : 'copy'} fitted />
-      </Button>
-    </Segment>
+    <code
+      className={className}
+      style={{
+        backgroundColor: '#f3f4f5',
+        border: '1px solid #ebebec',
+        borderRadius: '3px',
+        padding: '0px 3px',
+      }}
+      {...props}
+    >
+      {children}
+    </code>
   );
 }
 
