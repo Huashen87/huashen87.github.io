@@ -20,7 +20,7 @@ function Footer() {
     >
       <Container textAlign="center">
         <p style={{ fontSize: '16px' }}>
-          Copyright © 2023 by {<Link to="/">Huashen87</Link>}
+          Copyright © 2025 by {<Link to="/">Huashen87</Link>}
         </p>
         <Divider inverted />
         <List horizontal inverted link size="small">
